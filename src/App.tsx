@@ -62,6 +62,46 @@ function getErrorMessage(error: unknown): string {
   return "發生未知錯誤，請重試。"
 }
 
+function dataUrlToFile(dataUrl: string, filename: string): File {
+  const [header, base64] = dataUrl.split(",")
+  const mimeMatch = header.match(/data:(.*?);base64/)
+  const mimeType = mimeMatch?.[1] ?? "image/jpeg"
+  const binary = atob(base64)
+  const bytes = new Uint8Array(binary.length)
+
+  for (let index = 0; index < binary.length; index += 1) {
+    bytes[index] = binary.charCodeAt(index)
+  }
+
+  return new File([bytes], filename, { type: mimeType })
+}
+
+async function savePhotoToDevice(dataUrl: string, filename: string) {
+  const file = dataUrlToFile(dataUrl, filename)
+  const shareNavigator = navigator as Navigator & {
+    canShare?: (data: { files?: File[] }) => boolean
+    share?: (data: { files?: File[]; title?: string; text?: string }) => Promise<void>
+  }
+
+  if (shareNavigator.share && shareNavigator.canShare?.({ files: [file] })) {
+    await shareNavigator.share({
+      files: [file],
+      title: "Library orientation photo",
+      text: "Save your library orientation photo.",
+    })
+    return
+  }
+
+  const objectUrl = URL.createObjectURL(file)
+  const link = document.createElement("a")
+  link.href = objectUrl
+  link.download = filename
+  document.body.appendChild(link)
+  link.click()
+  link.remove()
+  URL.revokeObjectURL(objectUrl)
+}
+
 function getGroupByCheckInNumber(checkInNumber: number): GroupId {
   const index = Math.max(0, checkInNumber - 1)
   return GROUP_ORDER[index % GROUP_ORDER.length]
@@ -104,13 +144,36 @@ function PhotoCapture({
   onCapture: (dataUrl: string) => void
 }) {
   const inputRef = useRef<HTMLInputElement>(null)
+  const [isSavingPhoto, setIsSavingPhoto] = useState(false)
+  const [saveError, setSaveError] = useState<string | null>(null)
 
   const handleFile = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (!file) return
+    setSaveError(null)
     const reader = new FileReader()
     reader.onload = (ev) => onCapture(ev.target?.result as string)
     reader.readAsDataURL(file)
+  }
+
+  const handleSavePhoto = async () => {
+    if (!photo) {
+      return
+    }
+
+    setIsSavingPhoto(true)
+    setSaveError(null)
+
+    try {
+      await savePhotoToDevice(photo, `library-orientation-${Date.now()}.jpg`)
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") {
+        return
+      }
+      setSaveError("無法直接儲存，請改用手機的分享或下載功能重試。")
+    } finally {
+      setIsSavingPhoto(false)
+    }
   }
 
   return (
@@ -169,6 +232,38 @@ function PhotoCapture({
       >
         {photo ? "📷  重新拍攝 / Retake Photo" : "📸  拍照或自拍 / Take Photo or Selfie"}
       </button>
+
+      {photo && (
+        <>
+          <button
+            onClick={() => void handleSavePhoto()}
+            disabled={isSavingPhoto}
+            className="w-full py-3 text-sm font-semibold transition-all active:scale-95 disabled:opacity-60"
+            style={{
+              fontFamily: "var(--font-body)",
+              backgroundColor: "#faf7f2",
+              color: "#1e3a2f",
+              borderRadius: 10,
+              border: "1.5px solid #2d5242",
+              letterSpacing: "0.03em",
+            }}
+          >
+            {isSavingPhoto ? "儲存中… / Saving…" : "⬇️  儲存到手機 / Save to Phone"}
+          </button>
+
+          <p className="text-xs text-center px-3" style={{ color: "#7a6e5f", fontFamily: "var(--font-body)", lineHeight: 1.5 }}>
+            按下後會開啟手機分享或下載面板，請選擇「儲存圖片」或相簿。
+            <br />
+            This opens your phone's share or download sheet so you can save the photo to your gallery.
+          </p>
+
+          {saveError && (
+            <p className="text-xs text-center px-3" style={{ color: "#c0392b", fontFamily: "var(--font-body)", lineHeight: 1.5 }}>
+              {saveError}
+            </p>
+          )}
+        </>
+      )}
     </div>
   )
 }
