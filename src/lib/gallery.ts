@@ -14,6 +14,7 @@ export interface GallerySubmission {
   studentName: string
   sessionId: string
   groupId: string
+  checkInNumber: number | null
   photoPath: string
   photoUrl: string
   createdAtMs: number | null
@@ -38,6 +39,7 @@ export async function fetchSessionSubmissions(sessionId: string): Promise<Galler
       studentName: typeof data.studentName === "string" ? data.studentName : "",
       sessionId: typeof data.sessionId === "string" ? data.sessionId : "",
       groupId: typeof data.groupId === "string" ? data.groupId : "",
+      checkInNumber: typeof data.checkInNumber === "number" ? data.checkInNumber : null,
       photoPath: typeof data.photoPath === "string" ? data.photoPath : "",
       photoUrl: typeof data.photoUrl === "string" ? data.photoUrl : "",
       createdAtMs,

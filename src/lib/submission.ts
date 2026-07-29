@@ -10,6 +10,7 @@ interface UploadPayload {
   studentName: string
   sessionId: string
   groupId: "A" | "B" | "C" | "D"
+  checkInNumber: number
   routeStopIds: number[]
   photoDataUrl: string
 }
@@ -91,7 +92,7 @@ async function compressImageDataUrl(dataUrl: string): Promise<Blob> {
 }
 
 export async function uploadFavouriteSubmission(payload: UploadPayload): Promise<UploadResult> {
-  const { studentName, sessionId, groupId, routeStopIds, photoDataUrl } = payload
+  const { studentName, sessionId, groupId, checkInNumber, routeStopIds, photoDataUrl } = payload
   const user = await ensureAnonymousAuth()
   const imageBlob = await compressImageDataUrl(photoDataUrl)
 
@@ -118,6 +119,7 @@ export async function uploadFavouriteSubmission(payload: UploadPayload): Promise
     studentName,
     sessionId,
     groupId,
+    checkInNumber,
     routeId: groupId,
     routeStopIds,
     photoPath,

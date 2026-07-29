@@ -1173,6 +1173,7 @@ function GalleryPage() {
               <span className="text-xs truncate" style={{ color: "#1e3a2f" }}>
                 {item.studentName || "—"}
                 {item.groupId ? ` · ${item.groupId}` : ""}
+                {item.checkInNumber !== null ? `, ${item.checkInNumber}` : ""}
               </span>
               <button
                 onClick={() => void handleDelete(item)}
@@ -1214,6 +1215,7 @@ function MainApp() {
   const [visitorName, setVisitorName] = useState("")
   const [visitorSession, setVisitorSession] = useState("")
   const [visitorGroup, setVisitorGroup] = useState<GroupId>("A")
+  const [visitorCheckInNumber, setVisitorCheckInNumber] = useState(0)
   const [routeStops, setRouteStops] = useState<TourStop[]>(getRouteStops("A"))
   const [stopIndex, setStopIndex] = useState(0)
   const [subPhase, setSubPhase] = useState<"info" | "photo">("info")
@@ -1262,6 +1264,7 @@ function MainApp() {
     setVisitorName(name)
     setVisitorSession(session)
     setVisitorGroup(groupId)
+    setVisitorCheckInNumber(checkInNumber)
     setRouteStops(route)
     setStopIndex(0)
     setSubPhase("info")
@@ -1309,6 +1312,7 @@ function MainApp() {
         studentName: visitorName,
         sessionId: visitorSession,
         groupId: visitorGroup,
+        checkInNumber: visitorCheckInNumber,
         routeStopIds: routeStops.map((stop) => stop.id),
         photoDataUrl: photo,
       })
