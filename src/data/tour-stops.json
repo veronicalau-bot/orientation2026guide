@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "nameZh": "資訊共享空間",
+    "nameEn": "Information Commons",
+    "locationZh": "演藝學院圖書館地下",
+    "locationEn": "Academy Library G/F",
+    "descriptionZh": "資訊共享空間設有 6 部安裝了不同軟件的電腦，旨在支援讀者搜尋資訊。每部電腦均連接到館內的影印/打印機及掃描器。",
+    "descriptionEn": "The Information Commons provides six computers with different software to support information search. Each workstation is connected to the library's printing, photocopying, and scanning facilities.",
+    "tipZh": "需要快速查資料時，可先在這裡搜尋，再到對應館藏區取書。",
+    "tipEn": "Start your search here, then head to the matching collection area to find physical materials.",
+    "imageUrl": "/img/01.jpg",
+    "imageAlt": "資訊共享空間的電腦工作站 / Computer workstations in the Information Commons"
+  },
+  {
+    "id": 2,
+    "nameZh": "研討室",
+    "nameEn": "Seminar Rooms",
+    "locationZh": "演藝學院圖書館高層地下",
+    "locationEn": "Academy Library Upper Ground",
+    "descriptionZh": "圖書館共有三間不同大小的研討室，支援學術交流及圖書館讀者教育服務。各研討室設有電腦及各類影音器材。教職員及學生可透過圖書館網頁的研討室預約系統預約使用。",
+    "descriptionEn": "The library has three seminar rooms of different sizes for academic exchange and user education activities. Rooms are equipped with computers and audio-visual devices, and can be booked online via the library website.",
+    "tipZh": "小組匯報前可先預約房間，避免高峰時段沒有空位。",
+    "tipEn": "Reserve early before presentations, especially during peak periods.",
+    "imageUrl": "/img/02.jpg",
+    "imageAlt": "研討室內部 / Interior of a seminar room"
+  },
+  {
+    "id": 3,
+    "nameZh": "學習共享空間",
+    "nameEn": "Learning Commons",
+    "locationZh": "演藝學院圖書館高層地下",
+    "locationEn": "Academy Library Upper Ground",
+    "descriptionZh": "學習共享空間旨在提供促進學術交流的空間。空間內共有 26 個座位及可移動、自由組合的工作枱，以滿足不同學習模式的需要。",
+    "descriptionEn": "The Learning Commons is designed for collaborative and flexible study. It includes 26 seats and movable tables that can be rearranged for different learning activities.",
+    "tipZh": "如果你要討論功課，這裡比安靜區更適合。",
+    "tipEn": "Choose this space for discussion-based work instead of silent study zones.",
+    "imageUrl": "/img/03.jpg",
+    "imageAlt": "學習共享空間座位與工作枱 / Seats and movable tables in the Learning Commons"
+  },
+  {
+    "id": 4,
+    "nameZh": "學習資源室",
+    "nameEn": "Learning Resources Room",
+    "locationZh": "演藝學院圖書館高層地下",
+    "locationEn": "Academy Library Upper Ground",
+    "descriptionZh": "學習資源室主要為讀者提供個人及小組學習空間；室內備有個人研習亭、視聽亭、小組書枱及 10 部個人電腦/iMac。所有電腦均連接到影印/打印機及 A3 掃描器。開放時間為每日早上 9 時至晚上 11:30。",
+    "descriptionEn": "The Learning Resources Room supports both individual and small-group study. Facilities include study booths, audio-visual booths, group desks, and 10 PCs/iMacs connected to printers and an A3 scanner. It opens daily from 9:00 AM to 11:30 PM.",
+    "tipZh": "若圖書館正門關閉，可留意指示從指定入口進入。",
+    "tipEn": "After-hours access may use a designated entrance, so check posted directions.",
+    "imageUrl": "/img/04.jpg",
+    "imageAlt": "學習資源室設備 / Facilities in the Learning Resources Room"
+  },
+  {
+    "id": 5,
+    "nameZh": "影音資料區",
+    "nameEn": "Audio Visual Room",
+    "locationZh": "演藝學院圖書館地下",
+    "locationEn": "Academy Library G/F",
+    "descriptionZh": "學院圖書館收藏了 45,700 件視聽資料、1,000 個 CD-ROM 及 DVD-ROM 電腦檔案，以及 142 種現期印刷版期刊。",
+    "descriptionEn": "The Academy Library houses 45,700 audio-visual items, 1,000 computer files on CD-ROM and DVD-ROM, and 142 active printed journal titles.",
+    "tipZh": "做表演藝術研究時，這區的影音館藏很有幫助。",
+    "tipEn": "This section is especially useful for performance and media research.",
+    "imageUrl": "/img/05.jpg",
+    "imageAlt": "影音資料區館藏 / Audio-visual collections"
+  },
+  {
+    "id": 6,
+    "nameZh": "主要館藏",
+    "nameEn": "Main Stack",
+    "locationZh": "演藝學院圖書館地下",
+    "locationEn": "Academy Library G/F",
+    "descriptionZh": "學院圖書館的實體館藏包含超過 28,500 冊中文書籍、近 54,200 冊英文或其他語言書籍，以及約 28,100 份樂譜和管弦樂分譜。",
+    "descriptionEn": "The Main Stack includes over 28,500 Chinese volumes, nearly 54,200 English or other-language volumes, and around 28,100 music scores and orchestral parts.",
+    "tipZh": "先記下索書號再找書，會更快找到正確書架。",
+    "tipEn": "Note the call number first to locate the right shelf faster.",
+    "imageUrl": "/img/06.jpg",
+    "imageAlt": "主要館藏書架 / Shelves in the Main Stack"
+  },
+  {
+    "id": 7,
+    "nameZh": "個人靜音艙",
+    "nameEn": "Solo Pods",
+    "locationZh": "演藝學院圖書館地下",
+    "locationEn": "Academy Library G/F",
+    "descriptionZh": "館內設有兩間 Solo Pods，配備隔音、可調校燈光、無線充電及電源插座，供個人使用。教職員和學生可透過圖書館網頁的研討室及 Solo Pod 預約系統辦理預約。",
+    "descriptionEn": "Two Solo Pods are available for individual use with soundproofing, adjustable lighting, wireless charging, and power outlets. Staff and students can reserve them via the library booking system.",
+    "tipZh": "想錄音或需要高度專注時，Solo Pod 是理想選擇。",
+    "tipEn": "Use a Solo Pod when you need focused work or quiet recording.",
+    "imageUrl": "/img/07.jpg",
+    "imageAlt": "個人靜音艙 / Solo Pod"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "description": "Guides library visitors through an interactive orientation tour with location details and photo check-ins to enhance engagement and memory.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
